@@ -80,8 +80,7 @@ This service gives you detailed artist info.
 To start your Phoenix server:
 
 - Install dependencies with `mix deps.get`
-- Install Node.js dependencies with `npm install` inside the `assets` directory
 - Load the environment variables `source .env`
-- Start Phoenix endpoint with `mix phx.server`
+- Start Phoenix endpoint with `mix run --no-halt`
 
-You can also visit [`localhost:4000`](http://localhost:4000) from your browser.
+You can also visit [`localhost:8080`](http://localhost:8080) from your browser.
