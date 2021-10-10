@@ -10,7 +10,7 @@ defmodule MovieFinderMicroservicesElixir.Application do
       Plug.Cowboy.child_spec(
         scheme: :http,
         plug: MovieFinderMicroservicesElixir.Endpoint,
-        options: [port: 8080]
+        options: [port: Application.get_env(:movie_finder_microservices_elixir, :port)]
       )
     ]
 
