@@ -3,8 +3,10 @@ defmodule MovieFinder.Movies do
   Module for requesting the movie downstream services
   """
 
+  @downstream_service Application.get_env(:movie_finder_microservices_elixir, :downstream_service)
+
   def list_movies_from_external_service(params) do
-    url = System.get_env("MOVIE_SEARCH_SERVICE_URL") <> "/movies?" <> URI.encode_query(params)
+    url = @downstream_service[:movie_search_service_url] <> "/movies?" <> URI.encode_query(params)
 
     case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
@@ -38,7 +40,7 @@ defmodule MovieFinder.Movies do
       |> Enum.take(5)
       |> Enum.join(",")
 
-    url = System.get_env("MOVIE_INFO_SERVICE_URL") <> "/movies" <> "?ids=" <> ids
+    url = @downstream_service[:movie_info_service_url] <> "/movies" <> "?ids=" <> ids
 
     case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
@@ -78,7 +80,7 @@ defmodule MovieFinder.Movies do
       |> Enum.join(",")
 
     url =
-      System.get_env("ARTIST_INFO_SERVICE_URL") <>
+      @downstream_service[:artist_info_service_url] <>
         "/artists" <> "?ids=" <> ids
 
     case HTTPoison.get(url) do
