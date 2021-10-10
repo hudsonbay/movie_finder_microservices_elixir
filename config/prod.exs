@@ -1,3 +1,3 @@
 use Mix.Config
 
-config :webhook_processor, port: 80
+config :movie_finder_microservices_elixir, port: 80
