@@ -16,7 +16,7 @@ defmodule MovieFinderMicroservicesElixir.Endpoint do
   end
 
   get "/api/movies" do
-    movies = MovieFinder.Movies.list_movies_from_external_service(conn.query_params) |> IO.inspect
+    movies = MovieFinder.Movies.list_movies_from_external_service(conn.query_params)
 
     conn
     |> send_resp(
