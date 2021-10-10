@@ -1,9 +1,9 @@
-defmodule MovieFinderMicroservicesElixir.MixProject do
+defmodule MovieFinder.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :movie_finder_microservices_elixir,
+      app: :movie_finder,
       version: "0.1.0",
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
@@ -15,7 +15,7 @@ defmodule MovieFinderMicroservicesElixir.MixProject do
   def application do
     [
       extra_applications: [:logger, :plug_cowboy],
-      mod: {MovieFinderMicroservicesElixir.Application, []}
+      mod: {MovieFinder.Application, []}
     ]
   end
 

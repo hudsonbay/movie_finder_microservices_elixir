@@ -3,7 +3,7 @@ defmodule MovieFinder.Movies do
   Module for requesting the movie downstream services
   """
 
-  @downstream_service Application.get_env(:movie_finder_microservices_elixir, :downstream_service)
+  @downstream_service Application.get_env(:movie_finder, :downstream_service)
 
   def list_movies_from_external_service(params) do
     url = @downstream_service[:movie_search_service_url] <> "/movies?" <> URI.encode_query(params)

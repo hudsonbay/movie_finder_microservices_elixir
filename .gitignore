@@ -20,7 +20,7 @@ erl_crash.dump
 *.ez
 
 # Ignore package tarball (built via "mix hex.build").
-movie_finder_microservices_elixir-*.tar
+movie_finder-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
