@@ -4,10 +4,6 @@ services:
     build:
       context: .
       container_name: movie_finder
-      depends_on:
-        - movieinfo
-        - moviesearch
-        - artistinfo
       ports:
         - "8080:8080"
       links:
