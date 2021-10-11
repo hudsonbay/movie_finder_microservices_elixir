@@ -1,24 +1,36 @@
-version: '3'
+version: "3"
 services:
+  api:
+    build:
+      context: .
+      container_name: movie_finder
+      depends_on:
+        - movieinfo
+        - moviesearch
+        - artistinfo
+      ports:
+        - "8080:8080"
+      links:
+        - movieinfo
+        - moviesearch
+        - artistinfo
   movieinfo:
     image: "keremk/movieinfo:v0.3"
     ports:
-     - "3030:3030"
-    environment: 
-     - FAIL_PERCENT=0.2
-     - MAX_ALLOWED=5
+      - "3030:3030"
+    environment:
+      - FAIL_PERCENT=0.2
+      - MAX_ALLOWED=5
   moviesearch:
     image: "keremk/moviesearch:v0.5"
     ports:
-     - "3040:3030"
-    environment: 
-     - FAIL_PERCENT=0.1
+      - "3040:3030"
+    environment:
+      - FAIL_PERCENT=0.1
   artistinfo:
     image: "keremk/artistinfo:v0.4"
     ports:
-     - "3050:3030"
-    environment: 
-     - FAIL_PERCENT=0.5
-     - MAX_ALLOWED=5
-  
- 
+      - "3050:3030"
+    environment:
+      - FAIL_PERCENT=0.5
+      - MAX_ALLOWED=5
