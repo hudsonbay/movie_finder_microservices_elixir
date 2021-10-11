@@ -3,13 +3,17 @@ services:
   api:
     build:
       context: .
-      container_name: movie_finder
-      ports:
-        - "8080:8080"
-      links:
-        - movieinfo
-        - moviesearch
-        - artistinfo
+    container_name: movie_finder
+    depends_on:
+      - movieinfo
+      - moviesearch
+      - artistinfo
+    ports:
+      - "8080:8080"
+    links:
+      - movieinfo
+      - moviesearch
+      - artistinfo
   movieinfo:
     image: "keremk/movieinfo:v0.3"
     ports:
