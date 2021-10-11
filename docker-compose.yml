@@ -1,17 +1,16 @@
 version: "3"
 services:
-  api:
-    build:
-      context: .
-    container_name: movie_finder
-    env_file:
-      - .env
-    ports:
-      - "8080:8080"
-    links:
-      - movieinfo
-      - moviesearch
-      - artistinfo
+  # api:
+  #   build:
+  #     context: .
+  #   container_name: movie_finder
+  #   env_file: .env
+  #   ports:
+  #     - "8080:8080"
+  #   links:
+  #     - movieinfo
+  #     - moviesearch
+  #     - artistinfo
   movieinfo:
     image: "keremk/movieinfo:v0.3"
     ports:
